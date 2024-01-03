@@ -5,7 +5,7 @@
 #include <QPainter>
 #include <QDebug>
 #include <QMessageBox>
-#include <QtWidgets>
+
 Snake sn;
 Control con;
 
@@ -17,18 +17,18 @@ MainWindow::MainWindow(QWidget *parent)
     bool  load_result = false;
 
     //(4) your code. load data from data.txt file by Snake's member function LoadPlayDataFromFile
-    if(sn.LoadPlayDataFromFile("C:\\Users\\27285\\Desktop\\learn-qt-with-code\\QSnake\\data.txt")) {
+    if(sn.LoadPlayDataFromFile("data.txt")) {
         load_result = true;
     }
     assert(load_result);
     //(5) your code.  set window title with "Snake Game"
     //https://zhuanlan.zhihu.com/p/669799427
-
-
+    parent->setWindowTitle("Snake Game");
 
     //(6) your code. set window size by the col number and row number in Snake object.
     //every pixmap size is the same : width * height = m_pictureSize * m_pictureSize
     //use setFixedSize()
+
 }
 
 MainWindow::~MainWindow() {

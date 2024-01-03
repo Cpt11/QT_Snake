@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 10.0.2, 2023-12-26T21:26:21. -->
+<!-- Written by QtCreator 10.0.2, 2024-01-03T14:07:19. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -395,7 +395,7 @@
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/27285/Desktop/learn-qt-with-code/QSnake</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/27285/Desktop/QT_Snake</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
