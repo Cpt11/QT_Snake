@@ -208,37 +208,33 @@ void Model::ShowGame(QPainter &painter, int pictureSize) const {
             bool load_result = false;
             if (row == headPosition.first && col == headPosition.second)
             {
-                pixmap.loadFromData("snake_head.jpeg");
-                // your code
-                // 加载你的图片资源到qrc文件中的pixmap
-                // 如果有些图片不在qrc文件中，你需要自己添加
+                if(pixmap.load("snake_head.png")){
+                     load_result = true;
+                }
             }
             else if (element == static_cast<char>(MatrixValueEnum::FOOD))
             {
-                pixmap.loadFromData("food.png");
-                // your code
-                // 加载食物的图片
+                if(pixmap.load("food-apple.png")){
+                     load_result = true;
+                }
             }
             else if (element == static_cast<char>(MatrixValueEnum::NOTHING))
             {
-                pixmap.loadFromData("grass.png");
-                // your code
-                // 加载空地的图片
+                if(pixmap.load("grass.png")){
+                     load_result = true;
+                }
             }
             // 蛇身体
             else if(element == static_cast<char>(MatrixValueEnum::SNAKE_BODY))
             {
-                // your code
-                pixmap.loadFromData("snake_body.png");
-                // 加载蛇身体的图片
+                if(pixmap.load("body.png")){
+                     load_result = true;
+                }
             }
             else {
                 assert(false);
             }
             assert(load_result);
-            // your code
-            // 使用painter的成员函数drawPixmap在正确的位置绘制图片
-            // 你应该给drawPixmap正确的x和y，这是由列和行决定的
             int x = col * pictureSize;
             int y = row * pictureSize;
             QRect rect(x, y, pictureSize, pictureSize);

@@ -26,7 +26,7 @@ private:
     Ui::MainWindow *ui;
     Snake m_snake;
     int m_pictureSize = 100;
-
+    QPainter painter;
 //    Model ml;
 //    Control con;
 //    Snake *sn;
