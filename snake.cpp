@@ -1,8 +1,7 @@
 #include "snake.h" // 包含snake头文件
 
 // 从文件加载游戏数据
-bool Snake::LoadPlayDataFromFile(const string &file)
-{
+bool Snake::LoadPlayDataFromFile(const string &file) {
     std::ifstream fin(file); // 打开文件
     if (!fin) // 如果文件打开失败
     {
@@ -14,8 +13,7 @@ bool Snake::LoadPlayDataFromFile(const string &file)
 }
 
 // 开始游戏
-bool Snake::Play(char direction)
-{
+bool Snake::Play(char direction) {
     if (!m_control.GoAhead(direction)) // 如果蛇不能向指定方向移动
     {
         std::cout << "Game Over!" << std::endl; // 输出游戏结束信息
@@ -200,11 +198,9 @@ void Model::CreateFood()
 }
 
 // 显示游戏
-void Model::ShowGame(QPainter &painter, int pictureSize) const
-{
+void Model::ShowGame(QPainter &painter, int pictureSize) const {
     auto headPosition = m_snakeBody.front();
-    for (size_t row = 0; row < m_playBoard.size(); row++)
-    {
+    for (size_t row = 0; row < m_playBoard.size(); row++) {
         for (size_t col = 0; col < m_playBoard[row].size(); col++)
         {
             auto element = m_playBoard[row][col];
@@ -212,19 +208,20 @@ void Model::ShowGame(QPainter &painter, int pictureSize) const
             bool load_result = false;
             if (row == headPosition.first && col == headPosition.second)
             {
+                pixmap.loadFromData("snake_head.jpeg");
                 // your code
                 // 加载你的图片资源到qrc文件中的pixmap
                 // 如果有些图片不在qrc文件中，你需要自己添加
-
             }
             else if (element == static_cast<char>(MatrixValueEnum::FOOD))
             {
+                pixmap.loadFromData("food.png");
                 // your code
                 // 加载食物的图片
-
             }
             else if (element == static_cast<char>(MatrixValueEnum::NOTHING))
             {
+                pixmap.loadFromData("grass.png");
                 // your code
                 // 加载空地的图片
             }
@@ -232,17 +229,20 @@ void Model::ShowGame(QPainter &painter, int pictureSize) const
             else if(element == static_cast<char>(MatrixValueEnum::SNAKE_BODY))
             {
                 // your code
+                pixmap.loadFromData("snake_body.png");
                 // 加载蛇身体的图片
             }
-            else
-            {
+            else {
                 assert(false);
             }
             assert(load_result);
             // your code
             // 使用painter的成员函数drawPixmap在正确的位置绘制图片
             // 你应该给drawPixmap正确的x和y，这是由列和行决定的
-
+            int x = col * pictureSize;
+            int y = row * pictureSize;
+            QRect rect(x, y, pictureSize, pictureSize);
+            painter.drawPixmap(rect, pixmap);
         }
     }
 }

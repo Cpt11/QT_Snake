@@ -27,5 +27,8 @@ private:
     Snake m_snake;
     int m_pictureSize = 100;
 
+//    Model ml;
+//    Control con;
+//    Snake *sn;
 };
 #endif // MAINWINDOW_H
